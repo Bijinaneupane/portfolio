@@ -1,0 +1,394 @@
+/* Reset margins, padding, and box-sizing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* Logo styling */
+.logo {
+    border: 3px solid #7b6995; /* Primary theme color for the border */
+    border-radius: 50%; /* Makes the border circular */
+    padding: 5px; /* Adds space between the image and the border */
+    background-color: #D9D1E9; /* Optional: Add a white background for contrast */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.logo:hover {
+    transform: scale(1.1); /* Slight zoom effect on hover */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* More pronounced shadow on hover */
+}
+
+/* Image hover effects */
+img {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+img:hover {
+    transform: scale(1.1); 
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);     
+}
+
+.profile {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.profile:hover {
+    transform: scale(1.15);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); 
+}
+
+/* Body and dark to */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark-mode {
+    background-color: #121212;
+    color: #D9D1E9;
+}
+
+/* Header Styling */
+#header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #9179B2;
+    padding: 10px 20px;
+    color: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 100px;
+    height: auto;
+}
+
+/* Navigation Menu */
+.navmenu ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+/* Navbar button styles */
+.nav_list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #FFFFFF; /* Text color for better contrast */
+    font-weight: bold;
+    padding: 10px 20px;
+    display: inline-block;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Button hover effect */
+.btn-hover {
+    background-color: #9179B2; /* Primary theme color */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.5s ease, background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+}
+
+.btn-hover:hover {
+    background-color: #D9D1E9; /* Darker theme shade for hover effect */
+    color: #FFFFFF;
+    transform: scale(1.2); /* Zoom effect */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Enhanced shadow */
+}
+
+
+.btn-hover:active {
+    transform: translateY(1px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+
+.circle {
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    width: 5px;
+    height: 5px;
+    background-color: transparent;
+    border-radius: 50%;
+    transform: translateX(-50%);
+    transition: background-color 0.3s;
+}
+
+.nav-link:hover + .circle {
+    background-color: #00bcd4;
+}
+
+/* Actions (Mode Toggle & Mobile Menu) */
+.actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.moon-sun {
+    width: 50px;
+    height: 50px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: #333;
+    cursor: pointer;
+    transition: background-color 1s;
+}
+
+#sun, #moon {
+    font-size: 1.5rem;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+#sun {
+    color: #ffd700;
+    opacity: 1;
+    transform: scale(1);
+}
+
+#moon {
+    color: #f4f4f4;
+    opacity: 0;
+    transform: scale(0);
+}
+
+body.dark-mode .moon-sun {
+    background-color: #ffd700;
+}
+
+body.dark-mode #sun {
+    opacity: 0;
+    transform: scale(0);
+}
+
+body.dark-mode #moon {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Main Content */
+.wrapper {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 20px;
+}
+
+.featured-box {
+    background-image: url('background.webp'); /* Replace 'background.jpg' with your image path */
+    background-size: cover; /* Ensure the image covers the section */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Avoid image repetition */
+    padding: 50px 20px;
+    color: white;
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    border-radius: 10px;
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+}
+
+.featured-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.featured-box::after {
+    position: absolute;
+    bottom: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.5rem;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 10px 20px;
+    border-radius: 20px;
+    opacity: 0;
+    transition: bottom 0.3s, opacity 0.3s;
+}
+
+.featured-box:hover::after {
+    bottom: 20px;
+    opacity: 1;
+}
+
+/* Profile Image */
+.profile {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+
+.featured-box .profile:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Hello Text */
+.hello p {
+    font-size: 1.5rem;
+    color: #555;
+    transition: color 0.3s ease-in-out;
+}
+
+.hello p:hover {
+    color: #9179B2;
+}
+
+/* Featured Name */
+.featured-name span {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+    margin: 10px 0;
+    display: inline-block;
+    transition: color 0.3s, letter-spacing 0.3s;
+}
+
+.featured-name span:hover {
+    color: #9179B2;
+    letter-spacing: 1px;
+}
+
+/* About Section */
+.section {
+    padding: 40px 20px;
+    background-color: #f9f9f9;
+}
+
+.section.dark-mode {
+    background-color: #1e1e1e;
+}
+
+.top-header h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.row {
+    display: flex;
+    justify-content: center;
+}
+
+.about-me {
+    text-align: center;
+}
+
+.about-me h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+table {
+    width: 50%;
+    border-collapse: collapse;
+    margin: 20px auto;
+    font-family: Arial, sans-serif;
+}
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+th {
+    background-color: #f2f2f2;
+}
+/* Buttons */
+.text-btn button {
+    margin: 10px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.hire-btn {
+    background-color: #9179B2;
+    color: #333;
+}
+
+.hire-btn:hover {
+    background-color: #D9D1E9;
+}
+
+.btn {
+    background-color: #333;
+    color: #fff;
+}
+
+.btn:hover {
+    background-color: #555;
+}
+
+/* Social Icons */
+.icon {
+    display: inline-block;
+    font-size: 1.5rem;
+    margin: 0 10px;
+    color: #555;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.icon:hover {
+    color: #9179B2;
+    transform: scale(1.2);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+    margin-top: 20px;
+    font-size: 0.9rem;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .navmenu ul {
+        display: none;
+        flex-direction: column;
+        background-color: #333;
+        position: absolute;
+        top: 60px;
+        right: 10px;
+        padding: 10px;
+        border-radius: 5px;
+    }
+
+    .navmenu ul.active {
+        display: flex;
+    }
+
+    .nav-menu-btn {
+        display: block;
+    }
+}

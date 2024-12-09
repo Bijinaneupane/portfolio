@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Projects</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@iconscout/unicons@4.0.8/css/line.min.css">
+    <link rel="icon" type="image/x-icon" href="logo.png">
+</head>
+<style>
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-color: #f4f4f4;
+}
+
+#poems-container {
+    text-align: center;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    max-width: 600px;
+    margin: 0 auto; /* Centers the poem container horizontally */
+}
+
+#poems h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+}
+
+.poem-buttons {
+    margin-top: 20px;
+}
+
+.poem-button {
+    background-color: #9179B2;
+    color: #fff;
+    padding: 10px 20px;
+    margin: 5px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.poem-button:hover {
+    background-color: #D9D1E9;
+}
+
+#poem-preview {
+    margin-top: 20px;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+#poem-preview img {
+    max-width: 100%;
+    max-height: 500px;
+    border-radius: 8px;
+}
+
+/* Header Styling */
+#header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #9179B2;
+    padding: 10px 20px;
+    color: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+/* Logo */
+.logo {
+    width: 100px;
+    height: auto;
+}
+
+/* Navigation Menu Centered */
+.navmenu {
+    flex: 1;
+    text-align: center; /* Center-aligns the menu */
+}
+
+.navmenu ul {
+    list-style: none;
+    display: inline-flex; /* Keeps items inline */
+    gap: 20px; /* Space between menu items */
+    transition: all 0.3s ease;
+    margin: 0; /* Reset margin */
+    padding: 0; /* Reset padding */
+}
+
+.navmenu ul li {
+    position: relative;
+}
+
+.navmenu ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+.navmenu ul li a:hover {
+    color: #D9D1E9;
+}
+
+/* Hamburger Button */
+.nav-menu-btn {
+    display: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: white;
+}
+
+/* Responsive Menu Styling */
+@media screen and (max-width: 768px) {
+    .navmenu ul {
+        display: none;
+        flex-direction: column;
+        background-color: #333;
+        position: absolute;
+        top: 60px;
+        right: 10px;
+        width: 200px;
+        border-radius: 5px;
+        padding: 10px;
+    }
+
+    .navmenu ul.active {
+        display: flex;
+    }
+
+    .nav-menu-btn {
+        display: block;
+    }
+
+    .navmenu {
+        flex: none; 
+    }
+}
+</style>
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <header id="header">
+            <div class="nav-logo">
+                <a href="index.html">
+                    <img src="logo.png" alt="Logo" class="logo">
+                </a>
+            </div>
+            <nav class="navmenu" id="myNavMenu">
+                <ul class="nav_menu_list">
+                   <button class="btn-hover"> <li class="nav_list"><a href="index.html" class="nav-link">Home</a></li></button>
+                   <button class="btn-hover"> <li class="nav_list"><a href="Projects.html" class="nav-link">Projects</a></li></button>
+                </ul>
+            </nav>
+            <!-- Three Dot (Hamburger) Menu -->
+            <div class="nav-menu-btn" id="menu-btn">
+                <i class="uil uil-bars"></i>
+            </div>
+        </header>
+
+        <!-- Poems Section -->
+        <section id="poems-container">
+            <h2>My Poems</h2>
+            <div class="poem-buttons">
+                <!-- Buttons to open poem images -->
+                <button class="poem-button" onclick="showPoem('poem1.jpeg')">Multiple Me</button>
+                <button class="poem-button" onclick="showPoem('poem2.jpeg')">I only write when..</button>
+                <button class="poem-button" onclick="showPoem('poem3.jpeg')">Is this fair?</button>
+                <button class="poem-button" onclick="showPoem('poem4.jpeg')">The girl I ran into</button>
+                <button class="poem-button" onclick="showPoem('poem5.jpeg')">The dual nature</button>
+                <button class="poem-button" onclick="showPoem('poem6.jpeg')">Destiny</button>
+            </div>
+            <!-- Poem Image Preview -->
+            <div id="poem-preview">
+                <img id="preview-image" src="" alt="Poem Preview">
+            </div>
+        </section>
+    </div>
+    
+    <script>
+        const menuBtn = document.getElementById('menu-btn');
+        const navMenu = document.querySelector('.navmenu ul');
+        
+        // Add event listener to the menu button
+        menuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active'); // Toggle the "active" class on the menu
+        });
+
+        // Function to show the poem image in the preview section
+        function showPoem(imageSrc) {
+            const previewImage = document.getElementById('preview-image');
+            const previewContainer = document.getElementById('poem-preview');
+            previewImage.src = imageSrc; // Set the image source to the button clicked
+            previewContainer.style.display = 'flex'; // Show the image preview container
+        }
+    </script>
+</body>
+</html>
